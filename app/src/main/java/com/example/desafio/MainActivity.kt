@@ -1,8 +1,7 @@
 package com.example.desafio
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.LinearLayout
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.desafio.model.FilmeItem
 import kotlinx.android.synthetic.main.activity_main.*
