@@ -2,12 +2,14 @@ package com.example.desafio
 
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.desafio.model.FilmeItem
 import kotlinx.android.synthetic.main.list_item.view.*
@@ -48,8 +50,13 @@ class FilmeAdapter(val listaFilmes: List<FilmeItem>, val context: Context) :
         val textViewPais: TextView = itemView.textPais
         val textViewDescricao: TextView = itemView.textDescricao
         //Adicionando clique ao recyclerview
+
         val clique = itemView.setOnClickListener({
-            Toast.makeText(context, "O ${textViewTitulo} foi clicado", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, "O ${itemView.textTituloFilme} foi clicado", Toast.LENGTH_SHORT).show()
+
+            //val intent = Intent(context,TelaSecundaria::class.java).
+            //startActivity(intent)
+
         })
     }
 }
