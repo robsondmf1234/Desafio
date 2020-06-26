@@ -2,19 +2,23 @@ package com.example.desafio
 
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
-import com.example.desafio.R
 import com.example.desafio.model.FilmeItem
 import kotlinx.android.synthetic.main.list_item.view.*
 
 
-class FilmeAdapter(val listaFilmes: List<FilmeItem>, val context: Context) :
-    RecyclerView.Adapter<FilmeAdapter.FilmeViewHolder>() {
+class FilmeAdapter(val listaFilmes: List<FilmeItem>,private val clique: (selectedItem: FilmeItem) -> Unit)
+    : RecyclerView.Adapter<FilmeAdapter.FilmeViewHolder>() {
+
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FilmeViewHolder {
         val filmeView =
             LayoutInflater.from(parent.context).inflate(R.layout.list_item, parent, false)
@@ -32,6 +36,10 @@ class FilmeAdapter(val listaFilmes: List<FilmeItem>, val context: Context) :
         holder.textViewCategoria.text = filmeAtual.categoria
         holder.textViewPais.text = filmeAtual.paisFilme
         holder.textViewDescricao.text = filmeAtual.descricao
+        holder.itemView.setOnClickListener({
+            //pegando o objeto do filmes atual
+            clique(filmeAtual)
+        })
 
     }
 
@@ -46,5 +54,6 @@ class FilmeAdapter(val listaFilmes: List<FilmeItem>, val context: Context) :
         val textViewCategoria: TextView = itemView.textCategoria
         val textViewPais: TextView = itemView.textPais
         val textViewDescricao: TextView = itemView.textDescricao
-    }
+
+        }
 }
