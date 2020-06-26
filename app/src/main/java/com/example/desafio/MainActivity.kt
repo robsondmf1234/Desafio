@@ -8,11 +8,7 @@ import com.example.desafio.model.FilmeItem
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
-    private fun mostrarNome(filme:FilmeItem){
-        startActivity(Intent(this,TelaSecundaria::class.java))
-        //putextra("filme",filme)
-        //startAct
-    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -21,14 +17,11 @@ class MainActivity : AppCompatActivity() {
             supportActionBar!!.hide()
         }
 
+        //gerar Lista de Filmes
         val listaFilmes = gerarFilmes(100)
 
-        //Lista de Categorias
-        // val listaCategoria = listOf("Aventura","Ação","Comédia","Romance")
-        // recyclerView.adapter = CategoriaAdapter(listaCategoria, this)
 
-
-        recyclerView.adapter = FilmeAdapter(listaFilmes,this::mostrarNome)
+        recyclerView.adapter = FilmeAdapter(listaFilmes,this::abreSegundaTela)
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.setHasFixedSize(true)
     }
@@ -53,5 +46,11 @@ class MainActivity : AppCompatActivity() {
             list += item
         }
         return list
+    }
+    private fun abreSegundaTela(filme:FilmeItem){
+        val vaiPraProximaTela = Intent(this, TelaSecundaria::class.java)
+        vaiPraProximaTela.putExtra("filme",filme)
+        startActivity(vaiPraProximaTela)
+
     }
 }
