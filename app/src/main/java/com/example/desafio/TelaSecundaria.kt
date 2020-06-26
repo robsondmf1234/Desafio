@@ -8,7 +8,7 @@ import kotlinx.android.synthetic.main.activity_tela_secundaria.*
 class TelaSecundaria : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_tela_secundaria)
+        setContentView(R.layout.activity_tela_secundaria2)
 
         val filme = intent.extras?.getParcelable<FilmeItem>("filme")!!
 
