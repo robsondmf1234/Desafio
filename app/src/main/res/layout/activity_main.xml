@@ -30,6 +30,6 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/recyclerView"
         app:labelVisibilityMode="unlabeled"
-        app:menu="@menu/layoutnavigation" />
+        app:menu="@menu/menu" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,37 +2,44 @@ package com.example.desafio
 
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.desafio.model.FilmeItem
 import kotlinx.android.synthetic.main.list_item.view.*
 
 
-class FilmeAdapter(val listaFilmes: List<FilmeItem>, val context: Context) :
-    RecyclerView.Adapter<FilmeAdapter.FilmeViewHolder>() {
+class FilmeAdapter(val listaFilmes: List<FilmeItem>,private val clique: (selectedItem: FilmeItem) -> Unit)
+    : RecyclerView.Adapter<FilmeAdapter.FilmeViewHolder>() {
+
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FilmeViewHolder {
         val filmeView =
             LayoutInflater.from(parent.context).inflate(R.layout.list_item, parent, false)
 
-        return FilmeViewHolder(filmeView,context)
+        return FilmeViewHolder(filmeView)
     }
 
 
     override fun onBindViewHolder(holder: FilmeViewHolder, position: Int) {
         val filmeAtual = listaFilmes[position]
 
-        //holder.itemView.setOnClickListener()
         holder.imageViewCapa.setImageResource(filmeAtual.imagemCapa)
         holder.textViewNota.text = filmeAtual.nota
         holder.textViewTitulo.text = filmeAtual.titulo
         holder.textViewCategoria.text = filmeAtual.categoria
         holder.textViewPais.text = filmeAtual.paisFilme
         holder.textViewDescricao.text = filmeAtual.descricao
+        holder.itemView.setOnClickListener({
+            //pegando o objeto do filmes atual
+            clique(filmeAtual)
+        })
 
     }
 
@@ -40,7 +47,7 @@ class FilmeAdapter(val listaFilmes: List<FilmeItem>, val context: Context) :
         return listaFilmes.size
     }
 
-    class FilmeViewHolder(itemView: View,context: Context) : RecyclerView.ViewHolder(itemView) {
+    class FilmeViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val imageViewCapa: ImageView = itemView.imageCapaFilme
         val textViewNota: TextView = itemView.textNotaFilme
         val textViewTitulo: TextView = itemView.textTituloFilme
@@ -48,9 +55,5 @@ class FilmeAdapter(val listaFilmes: List<FilmeItem>, val context: Context) :
         val textViewPais: TextView = itemView.textPais
         val textViewDescricao: TextView = itemView.textDescricao
 
-        //Adicionando clique ao recyclerview
-        //val clique = itemView.setOnClickListener({
-        //    Toast.makeText(context, "O ${textViewTitulo} foi clicado", Toast.LENGTH_SHORT).show()
-        //})
-    }
+        }
 }

@@ -1,5 +1,6 @@
 package com.example.desafio
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -7,6 +8,11 @@ import com.example.desafio.model.FilmeItem
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
+    private fun mostrarNome(filme:FilmeItem){
+        startActivity(Intent(this,TelaSecundaria::class.java))
+        //putextra("filme",filme)
+        //startAct
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -22,7 +28,7 @@ class MainActivity : AppCompatActivity() {
         // recyclerView.adapter = CategoriaAdapter(listaCategoria, this)
 
 
-        recyclerView.adapter = FilmeAdapter(listaFilmes, this)
+        recyclerView.adapter = FilmeAdapter(listaFilmes,this::mostrarNome)
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.setHasFixedSize(true)
     }
@@ -34,14 +40,15 @@ class MainActivity : AppCompatActivity() {
         for (i in 1 until size) {
             val idAvatar = R.drawable.avatar
 
-            val item = FilmeItem(
-                idAvatar,
-                "8.5", "Avatar",
-                "Aventura", "Estados Unidos", "No exuberante " +
-                        "mundo alienígena de Pandora vivem os Na'vi, seres que parecem ser" +
-                        " primitivos, mas são altamente evoluídos. Como o ambiente do planeta" +
-                        " é tóxico, foram criados os avatares, corpos biológicos controlados pela" +
-                        " mente humana que se movimentam livremente em Pandora. Jake Sully, um ex-fuzileiro"
+            val item = FilmeItem((i),
+                                idAvatar,
+                                "8.5", "Avatar",
+                                "Aventura", "Estados Unidos",
+                                "No exuberante " +
+                                "mundo alienígena de Pandora vivem os Na'vi, seres que parecem ser" +
+                                " primitivos, mas são altamente evoluídos. Como o ambiente do planeta" +
+                                " é tóxico, foram criados os avatares, corpos biológicos controlados pela" +
+                                " mente humana que se movimentam livremente em Pandora. Jake Sully, um ex-fuzileiro"
             )
             list += item
         }
