@@ -37,7 +37,7 @@ class FilmeAdapter(val listaFilmes: List<FilmeItem>,private val clique: (selecte
         holder.textViewPais.text = filmeAtual.paisFilme
         holder.textViewDescricao.text = filmeAtual.descricao
         holder.itemView.setOnClickListener({
-            //pegando o objeto do filmes atual 
+            //pegando o objeto do filmes atual
             clique(filmeAtual)
         })
 
