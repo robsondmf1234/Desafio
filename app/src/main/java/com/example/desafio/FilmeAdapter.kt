@@ -47,9 +47,10 @@ class FilmeAdapter(val listaFilmes: List<FilmeItem>, val context: Context) :
         val textViewCategoria: TextView = itemView.textCategoria
         val textViewPais: TextView = itemView.textPais
         val textViewDescricao: TextView = itemView.textDescricao
+
         //Adicionando clique ao recyclerview
-        val clique = itemView.setOnClickListener({
-            Toast.makeText(context, "O ${textViewTitulo} foi clicado", Toast.LENGTH_SHORT).show()
-        })
+        //val clique = itemView.setOnClickListener({
+        //    Toast.makeText(context, "O ${textViewTitulo} foi clicado", Toast.LENGTH_SHORT).show()
+        //})
     }
 }
