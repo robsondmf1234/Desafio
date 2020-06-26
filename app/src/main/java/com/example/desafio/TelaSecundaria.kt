@@ -15,7 +15,8 @@ class TelaSecundaria : AppCompatActivity() {
         text_name_filme.text = filme.titulo
         text_categoria.text = filme.categoria
         text_pais.text = filme.paisFilme
-        image_movie_capa.setImageResource(filme.imagemCapa)
+        image_capa_filme.setImageResource(filme.imagemCapa)
+        image_capa_secundaria.setImageResource(filme.imagemCapa)
 
 
     }

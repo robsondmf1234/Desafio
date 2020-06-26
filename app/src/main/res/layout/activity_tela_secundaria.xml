@@ -1,57 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
-
-    <TextView
-        android:id="@+id/text_name_filme"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:text="Nome do Filme"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.2" />
-
-    <TextView
-        android:id="@+id/text_categoria"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:layout_marginTop="20dp"
-        android:text="Categoria do Filme"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/text_name_filme" />
-
-    <TextView
-        android:id="@+id/text_pais"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:layout_marginTop="20dp"
-        android:text="Pais do Filme"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/text_categoria" />
-
     <ImageView
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:id="@+id/image_movie_capa"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/botao_arredondado"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/text_pais" />
+        android:id="@+id/image_capa_secundaria"
+        android:layout_width="match_parent"
+        android:layout_height="170dp"
+        android:scaleType="fitXY"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars"
+        />
+
+    <RelativeLayout
+        android:id="@+id/relative_layout"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:background="@color/colorCinzaDeFundo"
+        android:paddingLeft="8dp"
+        android:paddingRight="16dp"
+        android:paddingBottom="16dp"
+        app:layout_constraintTop_toBottomOf="@id/image_capa_secundaria">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/image_capa_cardview"
+            android:layout_width="150dp"
+            android:layout_height="200dp"
+            android:layout_margin="5dp"
+            android:elevation="10dp"
+            app:cardCornerRadius="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/image_capa_filme"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:scaleType="centerCrop"
+                android:src="@drawable/avatar"/>
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/text_name_filme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="15dp"
+            android:layout_toRightOf="@+id/image_capa_cardview"
+            android:text="Nome do Filme"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+        <ImageView
+            android:id="@+id/image_favorite"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignTop="@id/text_name_filme"
+            android:layout_alignParentEnd="true"
+            android:layout_marginLeft="30dp"
+            android:src="@drawable/ic_coracao"
+            android:tint="@color/white" />
+
+        <TextView
+            android:id="@+id/text_categoria"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/text_name_filme"
+            android:layout_alignStart="@id/text_name_filme"
+            android:layout_marginTop="10dp"
+            android:text="Categoria do Filme" />
+
+        <TextView
+            android:id="@+id/text_pais"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/text_categoria"
+            android:layout_alignStart="@id/text_categoria"
+            android:layout_marginTop="10dp"
+            android:text="Pais do Filme" />
+
+        <TextView
+            android:id="@+id/text_imdb"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/text_pais"
+            android:layout_alignStart="@id/text_pais"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/botao_arredondado_imdb"
+            android:gravity="center"
+            android:text="IMDB"
+            android:textStyle="bold" />
+    </RelativeLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
