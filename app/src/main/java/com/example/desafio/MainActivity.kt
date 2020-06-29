@@ -20,7 +20,6 @@ class MainActivity : AppCompatActivity() {
         //gerar Lista de Filmes
         val listaFilmes = gerarFilmes(100)
 
-
         recyclerView.adapter = FilmeAdapter(listaFilmes,this::abreSegundaTela)
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.setHasFixedSize(true)
@@ -36,7 +35,7 @@ class MainActivity : AppCompatActivity() {
             val item = FilmeItem((i),
                                 idAvatar,
                                 "8.5", "Avatar",
-                                "Aventura", "Estados Unidos",
+                                "Aventura", "Estados Unidos",//"118 min",
                                 "No exuberante " +
                                 "mundo alienígena de Pandora vivem os Na'vi, seres que parecem ser" +
                                 " primitivos, mas são altamente evoluídos. Como o ambiente do planeta" +

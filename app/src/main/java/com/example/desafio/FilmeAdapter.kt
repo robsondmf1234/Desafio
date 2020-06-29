@@ -1,15 +1,11 @@
 package com.example.desafio
 
 
-import android.content.Context
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
-import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.desafio.model.FilmeItem
 import kotlinx.android.synthetic.main.list_item.view.*
@@ -26,7 +22,6 @@ class FilmeAdapter(val listaFilmes: List<FilmeItem>,private val clique: (selecte
         return FilmeViewHolder(filmeView)
     }
 
-
     override fun onBindViewHolder(holder: FilmeViewHolder, position: Int) {
         val filmeAtual = listaFilmes[position]
 
@@ -35,6 +30,9 @@ class FilmeAdapter(val listaFilmes: List<FilmeItem>,private val clique: (selecte
         holder.textViewTitulo.text = filmeAtual.titulo
         holder.textViewCategoria.text = filmeAtual.categoria
         holder.textViewPais.text = filmeAtual.paisFilme
+
+        //holder.textViewDuracao.text = filmeAtual.duracao
+
         holder.textViewDescricao.text = filmeAtual.descricao
         holder.itemView.setOnClickListener({
             //pegando o objeto do filmes atual
@@ -53,6 +51,9 @@ class FilmeAdapter(val listaFilmes: List<FilmeItem>,private val clique: (selecte
         val textViewTitulo: TextView = itemView.textTituloFilme
         val textViewCategoria: TextView = itemView.textCategoria
         val textViewPais: TextView = itemView.textPais
+
+        //val textViewDuracao:TextView = itemView.text_duracao
+
         val textViewDescricao: TextView = itemView.textDescricao
 
         }

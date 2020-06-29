@@ -10,5 +10,6 @@ data class FilmeItem(val id: Int,
                      val titulo: String,
                      val categoria: String,
                      val paisFilme: String,
+                    // val duracao:String,
                      val descricao: String):Parcelable {
 }
