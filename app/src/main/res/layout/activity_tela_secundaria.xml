@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -103,12 +104,13 @@
 
         <TextView
             android:id="@+id/text_nota"
-            android:layout_width="60dp"
+            android:layout_width="50dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="12dp"
             android:layout_marginTop="10dp"
-            android:textSize="15sp"
+            android:textSize="13sp"
             android:textStyle="bold"
+            android:textColor="@color/corLetrasCinza2"
             app:layout_constraintBottom_toBottomOf="@id/text_imdb"
             app:layout_constraintStart_toEndOf="@id/text_imdb"
             tools:text="9.0" />
@@ -117,8 +119,9 @@
             android:id="@+id/text_duracao"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="4dp"
             android:text="118 min"
+            android:textColor="@color/corLetrasCinza2"
             app:layout_constraintBottom_toBottomOf="@id/text_nota"
             app:layout_constraintStart_toEndOf="@id/text_nota"
             tools:text="118 min" />
@@ -127,7 +130,7 @@
             android:id="@+id/text_votos"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="12dp"
             android:text="Quantidade de votos: 3500"
             android:textColor="@color/corLetrasCinza2"
             app:layout_constraintStart_toStartOf="@id/text_imdb"
@@ -167,10 +170,20 @@ mente humana que se movimentam livremente em Pandora. Jake Sully, um ex-fuzileir
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
         android:text="Opções Semelhantes"
         android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraint_layout" />
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView_tela_secundaria"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_opcoes_semelhantes"
+        tools:listitem="@layout/list_item2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

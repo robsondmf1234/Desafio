@@ -1,21 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="250dp"
     android:layout_margin="8dp"
     android:elevation="3dp"
     android:orientation="vertical">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:background="#363636">
 
         <androidx.cardview.widget.CardView
             android:id="@+id/image_capa_cardview1"
-            android:layout_width="130dp"
-            android:layout_height="170dp"
+            android:layout_width="170dp"
+            android:layout_height="220dp"
             android:layout_marginLeft="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
@@ -69,11 +70,11 @@
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="12dp"
             android:hint="Titulo Filme"
             android:maxLines="1"
             android:textColor="@color/white"
-            android:textSize="18sp"
+            android:textSize="26sp"
             android:textStyle="bold"
             app:layout_constraintLeft_toRightOf="@+id/image_capa_cardview1"
             app:layout_constraintTop_toTopOf="parent" />
@@ -83,11 +84,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/textTituloFilme"
+            android:layout_marginTop="2dp"
             android:hint="Categoria do Filmes"
             android:maxLines="1"
             android:textColor="@color/white"
             android:textSize="12sp"
-            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@+id/textTituloFilme"
             app:layout_constraintTop_toBottomOf="@+id/textTituloFilme" />
 
@@ -99,8 +100,7 @@
             android:hint="Estados Unidos"
             android:maxLines="1"
             android:textColor="@color/white"
-            android:textSize="10sp"
-            android:textStyle="bold"
+            android:textSize="11sp"
             app:layout_constraintStart_toStartOf="@+id/textCategoria"
             app:layout_constraintTop_toBottomOf="@+id/textCategoria" />
 
@@ -109,11 +109,12 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_below="@id/textPais"
+            android:layout_marginTop="8dp"
             android:ellipsize="end"
             android:hint="No exuberante mundo alienígena de Pandora vivem os Na'vi, seres que parecem ser primitivos, mas são altamente evoluídos. Como o ambiente do planeta é tóxico, foram criados os avatares, corpos biológicos controlados pela mente humana que se movimentam livremente em Pandora. Jake Sully, um ex-fuzileiro naval paralítico, volta a andar através de um avatar e se apaixona por uma Na'vi. Esta paixão leva Jake a lutar pela sobrevivência de Pandora."
-            android:maxLines="8"
+            android:maxLines="9"
             android:textColor="#757575"
-            android:textSize="11sp"
+            android:textSize="13sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/textPais"
