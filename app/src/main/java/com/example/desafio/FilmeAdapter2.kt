@@ -12,8 +12,8 @@ import com.example.desafio.repositorio.Filme
 import kotlinx.android.synthetic.main.list_item.view.*
 
 
-class FilmeAdapter(val listaFilmes: List<Filme>, private val clique: (selectedItem: Filme) -> Unit)
-    : RecyclerView.Adapter<FilmeAdapter.FilmeViewHolder>() {
+class FilmeAdapter2(val listaFilmes: List<Filme>)
+    : RecyclerView.Adapter<FilmeAdapter2.FilmeViewHolder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FilmeViewHolder {
@@ -34,11 +34,6 @@ class FilmeAdapter(val listaFilmes: List<Filme>, private val clique: (selectedIt
         //holder.textViewDuracao.text = filmeAtual.duracao
 
         holder.textViewDescricao.text = filmeAtual.descricao
-        holder.itemView.setOnClickListener({
-            //pegando o objeto do filmes atual
-            clique(filmeAtual)
-        })
-
     }
 
     override fun getItemCount(): Int {
