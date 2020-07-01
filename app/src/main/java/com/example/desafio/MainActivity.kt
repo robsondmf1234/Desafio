@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.desafio.adapter.FilmeAdapter
 import com.example.desafio.repositorio.Filme
 import com.example.desafio.repositorio.Mock
 import kotlinx.android.synthetic.main.activity_main.*
@@ -24,7 +25,10 @@ class MainActivity : AppCompatActivity() {
         //gerar Lista de Filmes
        // val listaFilmes = gerarFilmes(100)
 
-        recyclerView.adapter = FilmeAdapter(listaComFilmes,this::abreSegundaTela)
+        recyclerView.adapter = FilmeAdapter(
+            listaComFilmes,
+            this::abreSegundaTela
+        )
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.setHasFixedSize(true)
     }

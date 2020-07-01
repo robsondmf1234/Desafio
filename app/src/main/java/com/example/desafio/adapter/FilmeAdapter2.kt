@@ -1,4 +1,4 @@
-package com.example.desafio
+package com.example.desafio.adapter
 
 
 import android.view.LayoutInflater
@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.desafio.model.FilmeItem
+import com.example.desafio.R
 import com.example.desafio.repositorio.Filme
 import kotlinx.android.synthetic.main.list_item.view.*
 
@@ -20,7 +20,9 @@ class FilmeAdapter2(val listaFilmes: List<Filme>)
         val filmeView =
             LayoutInflater.from(parent.context).inflate(R.layout.list_item, parent, false)
 
-        return FilmeViewHolder(filmeView)
+        return FilmeViewHolder(
+            filmeView
+        )
     }
 
     override fun onBindViewHolder(holder: FilmeViewHolder, position: Int) {

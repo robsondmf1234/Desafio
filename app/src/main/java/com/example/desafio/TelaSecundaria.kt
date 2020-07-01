@@ -3,10 +3,9 @@ package com.example.desafio
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.desafio.model.FilmeItem
+import com.example.desafio.adapter.FilmeAdapter2
 import com.example.desafio.repositorio.Filme
 import com.example.desafio.repositorio.Mock
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_tela_secundaria.*
 
 class TelaSecundaria : AppCompatActivity() {
@@ -35,7 +34,8 @@ class TelaSecundaria : AppCompatActivity() {
         image_capa_filme.setImageResource(filme.imagemCapa)
         image_capa_secundaria.setImageResource(filme.imagemCapa)
 
-        recyclerView_tela_secundaria.adapter = FilmeAdapter2(listaComFilmes)
+        recyclerView_tela_secundaria.adapter =
+            FilmeAdapter2(listaComFilmes)
         recyclerView_tela_secundaria.layoutManager = LinearLayoutManager(this)
         recyclerView_tela_secundaria.setHasFixedSize(true)
 
