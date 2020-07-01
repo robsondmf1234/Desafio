@@ -4,6 +4,8 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.desafio.model.FilmeItem
+import com.example.desafio.repositorio.Filme
+import com.example.desafio.repositorio.Mock
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_tela_secundaria.*
 
@@ -17,11 +19,12 @@ class TelaSecundaria : AppCompatActivity() {
         if (supportActionBar != null) {
             supportActionBar!!.hide()
         }
-        //Verificar com o Denis a necessidade
-        //gerar Lista de Filmes
-        val listaFilmes = gerarFilmes(100)
 
-        val filme = intent.extras?.getParcelable<FilmeItem>("filme")!!
+        //val listaFilmes = gerarFilmes(100)
+        val listaComFilmes = Mock().getListaFilmes()
+
+
+        val filme = intent.extras?.getParcelable<Filme>("filme")!!
 
         text_name_filme.text = filme.titulo
         text_categoria.text = filme.categoria
@@ -32,7 +35,7 @@ class TelaSecundaria : AppCompatActivity() {
         image_capa_filme.setImageResource(filme.imagemCapa)
         image_capa_secundaria.setImageResource(filme.imagemCapa)
 
-        recyclerView_tela_secundaria.adapter = FilmeAdapter2(listaFilmes)
+        recyclerView_tela_secundaria.adapter = FilmeAdapter2(listaComFilmes)
         recyclerView_tela_secundaria.layoutManager = LinearLayoutManager(this)
         recyclerView_tela_secundaria.setHasFixedSize(true)
 

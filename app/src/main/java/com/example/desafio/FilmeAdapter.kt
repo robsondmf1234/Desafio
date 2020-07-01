@@ -8,10 +8,11 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.desafio.model.FilmeItem
+import com.example.desafio.repositorio.Filme
 import kotlinx.android.synthetic.main.list_item.view.*
 
 
-class FilmeAdapter(val listaFilmes: List<FilmeItem>,private val clique: (selectedItem: FilmeItem) -> Unit)
+class FilmeAdapter(val listaFilmes: List<Filme>, private val clique: (selectedItem: Filme) -> Unit)
     : RecyclerView.Adapter<FilmeAdapter.FilmeViewHolder>() {
 
 

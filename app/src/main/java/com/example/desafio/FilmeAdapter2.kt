@@ -8,10 +8,11 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.desafio.model.FilmeItem
+import com.example.desafio.repositorio.Filme
 import kotlinx.android.synthetic.main.list_item.view.*
 
 
-class FilmeAdapter2(val listaFilmes: List<FilmeItem>)
+class FilmeAdapter2(val listaFilmes: List<Filme>)
     : RecyclerView.Adapter<FilmeAdapter2.FilmeViewHolder>() {
 
 
