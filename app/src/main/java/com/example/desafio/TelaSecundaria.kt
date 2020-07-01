@@ -12,7 +12,7 @@ class TelaSecundaria : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tela_secundaria)
 
-        image_capa_secundaria.requestFocus()
+       // image_capa_secundaria.requestFocus()
 
         if (supportActionBar != null) {
             supportActionBar!!.hide()
