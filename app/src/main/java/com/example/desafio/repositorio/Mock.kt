@@ -139,6 +139,11 @@ class Mock {
     )
 
     fun getListaFilmes(): List<Filme> {
-        return mListaFilme
+
+        //Filtrando os filmes pela categoria
+        val listaFiltrada = mListaFilme.filter { it.categoria=="Ficcao" }
+        return listaFiltrada
+
+        //return mListaFilme
     }
 }

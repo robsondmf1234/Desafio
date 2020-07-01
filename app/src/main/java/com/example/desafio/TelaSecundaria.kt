@@ -41,7 +41,7 @@ class TelaSecundaria : AppCompatActivity() {
 
     }
 
-    private fun gerarFilmes(size: Int): List<FilmeItem> {
+/*    private fun gerarFilmes(size: Int): List<FilmeItem> {
 
         val list = ArrayList<FilmeItem>()
 
@@ -61,5 +61,5 @@ class TelaSecundaria : AppCompatActivity() {
             list += item
         }
         return list
-    }
+    }*/
 }
