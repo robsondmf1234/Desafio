@@ -30,7 +30,7 @@ class MyPageAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
     }
 
     override fun getCount(): Int {
-        return 5
+        return 6
     }
 
     override fun getPageTitle(position: Int): CharSequence? {

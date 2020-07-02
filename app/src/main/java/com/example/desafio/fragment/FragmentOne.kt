@@ -19,14 +19,15 @@ class FragmentOne(val categoria:String) : Fragment() {
 
     //Recupera da classe Mock uma lista com filmes
     val listaComFilmes = Mock().getListaFiltradaFilmes(categoria)
-//    val listaComFilmes = Mock().getListaFilmes()
+
+    // Retornando todos filmes
+    //val listaComFilmes = Mock().getListaFilmes()
 
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         listaFilmesRecycler.adapter = FilmeAdapter(listaComFilmes,this::abreSegundaTela)
         listaFilmesRecycler.layoutManager = LinearLayoutManager(context)
         listaFilmesRecycler.setHasFixedSize(true)
-
 
         super.onActivityCreated(savedInstanceState)
     }
@@ -36,7 +37,7 @@ class FragmentOne(val categoria:String) : Fragment() {
     }
 
     private fun abreSegundaTela(filme: Filme){
-        Toast.makeText(context, "Filme Cliclado", Toast.LENGTH_LONG).show()
+        Toast.makeText(context, "Filme Cliclado", Toast.LENGTH_SHORT).show()
     }
 
 }
