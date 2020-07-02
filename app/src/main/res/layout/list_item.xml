@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="250dp"
@@ -66,17 +65,19 @@
 
         <TextView
             android:id="@+id/textTituloFilme"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_marginStart="20dp"
             android:layout_marginTop="12dp"
             android:hint="Titulo Filme"
             android:maxLines="1"
+            android:ellipsize="end"
             android:textColor="@color/white"
             android:textSize="26sp"
             android:textStyle="bold"
-            app:layout_constraintLeft_toRightOf="@+id/image_capa_cardview1"
+            app:layout_constraintEnd_toStartOf="@id/imageFavorito"
+            app:layout_constraintStart_toEndOf="@id/image_capa_cardview1"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
@@ -111,7 +112,7 @@
             android:layout_below="@id/textPais"
             android:layout_marginTop="8dp"
             android:ellipsize="end"
-            android:hint="No exuberante mundo alienígena de Pandora vivem os Na'vi, seres que parecem ser primitivos, mas são altamente evoluídos. Como o ambiente do planeta é tóxico, foram criados os avatares, corpos biológicos controlados pela mente humana que se movimentam livremente em Pandora. Jake Sully, um ex-fuzileiro naval paralítico, volta a andar através de um avatar e se apaixona por uma Na'vi. Esta paixão leva Jake a lutar pela sobrevivência de Pandora."
+            android:text="No exuberante mundo alienígena de Pandora vivem os Na'vi, seres que parecem ser primitivos, mas são altamente evoluídos. Como o ambiente do planeta é tóxico, foram criados os avatares, corpos biológicos controlados pela mente humana que se movimentam livremente em Pandora. Jake Sully, um ex-fuzileiro naval paralítico, volta a andar através de um avatar e se apaixona por uma Na'vi. Esta paixão leva Jake a lutar pela sobrevivência de Pandora."
             android:maxLines="9"
             android:textColor="#757575"
             android:textSize="13sp"
