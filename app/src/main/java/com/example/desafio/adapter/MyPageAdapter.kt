@@ -3,6 +3,7 @@ package com.example.desafio.adapter
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
+import com.example.desafio.fragment.FragmentFavorite
 import com.example.desafio.fragment.FragmentOne
 
 class MyPageAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
@@ -28,9 +29,14 @@ class MyPageAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
             }
         }
     }
+/*
+    fun getFragmentFavorite(): Fragment {
+
+        return FragmentFavorite()
+    }*/
 
     override fun getCount(): Int {
-        return 6
+        return 5
     }
 
     override fun getPageTitle(position: Int): CharSequence? {

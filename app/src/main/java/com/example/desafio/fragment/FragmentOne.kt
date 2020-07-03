@@ -15,7 +15,7 @@ import com.example.desafio.repositorio.Filme
 import com.example.desafio.repositorio.Mock
 import kotlinx.android.synthetic.main.fragment_one.*
 
-class FragmentOne(val categoria:String) : Fragment() {
+class FragmentOne(categoria:String) : Fragment() {
 
     //Recupera da classe Mock uma lista com filmes
     val listaComFilmes = Mock().getListaFiltradaFilmes(categoria)
@@ -37,7 +37,7 @@ class FragmentOne(val categoria:String) : Fragment() {
     }
 
     private fun abreSegundaTela(filme: Filme){
-        Toast.makeText(context, "Filme Cliclado", Toast.LENGTH_SHORT).show()
+        Toast.makeText(context, "Filme Cliclado...", Toast.LENGTH_SHORT).show()
     }
 
 }
