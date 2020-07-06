@@ -3,7 +3,10 @@ package com.example.desafio
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import com.example.desafio.adapter.MyPageAdapter
+import com.example.desafio.fragment.FragmentFavorite
+import com.example.desafio.fragment.FragmentOne
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -23,31 +26,34 @@ class MainActivity : AppCompatActivity() {
         bottomNavigation.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.icon_home -> {
-                    Toast.makeText(this, "Botao Home clicado!", Toast.LENGTH_SHORT).show()
                     val fragmentAdapter = MyPageAdapter(supportFragmentManager)
-
-                    viewPager.adapter = fragmentAdapter
-                    tabLayout.setupWithViewPager(viewPager)
+                    buttomClicado("Botao Home clicado!", fragmentAdapter)
 
                     true
                 }
                 R.id.icon_favorite -> {
-                    Toast.makeText(this, "Botao Favorite clicado!!", Toast.LENGTH_SHORT).show()
-                    val fragmentAdapter = MyPageAdapter(supportFragmentManager)
-
-                    val fragment1 = MyPageAdapter(supportFragmentManager)
-
-                    //Adicionar o Fragment Favorite a tela inicial
-                    viewPager.adapter = fragment1
-                    //tabLayout.setupWithViewPager(viewPager)
+                    val FragmentFavorite = MyPageAdapter(supportFragmentManager)
+                    buttomClicado("Botao Favorite clicado!!", FragmentFavorite)
 
                     true
                 }
                 R.id.icon_search -> {
-                    Toast.makeText(this, "Botao Search clicado!", Toast.LENGTH_SHORT).show()
+                    val fragmentAdapter = MyPageAdapter(supportFragmentManager)
+                    buttomClicado("Botao Search clicado!", fragmentAdapter)
+
                     true
                 }
                 else -> false
             }
+        }
     }
-}}
+
+    fun buttomClicado(mensagem: String, fragment: MyPageAdapter) {
+
+        Toast.makeText(this, "${mensagem}", Toast.LENGTH_SHORT).show()
+
+        viewPager.adapter = fragment
+        tabLayout.setupWithViewPager(viewPager)
+
+    }
+}

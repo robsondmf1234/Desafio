@@ -34,9 +34,12 @@ class TelaSecundaria : AppCompatActivity() {
         image_capa_filme.setImageResource(filme.imagemCapa)
         image_capa_secundaria.setImageResource(filme.imagemCapa)
 
+        setupMainRecyclerView(listaComFilmes)
+    }
+
+    private fun setupMainRecyclerView(listaComFilmes: List<Filme>) {
         recyclerView_tela_secundaria.adapter = FilmeAdapter2(listaComFilmes)
         recyclerView_tela_secundaria.layoutManager = LinearLayoutManager(this)
         recyclerView_tela_secundaria.setHasFixedSize(true)
-
     }
 }
