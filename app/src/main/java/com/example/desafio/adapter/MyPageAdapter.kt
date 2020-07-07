@@ -1,35 +1,22 @@
 package com.example.desafio.adapter
 
+import android.content.Context
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentPagerAdapter
+import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.example.desafio.fragment.FragmentOne
-import java.util.*
 
-class MyPageAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
+class MyPageAdapter(fm: FragmentManager, context: Context?, fragment: Fragment) :
+    FragmentStateAdapter(fragment) {
 
-    companion object {
-        //Lista com as categorias dos filmes
-        val categoriesList: List<String> =
-            Arrays.asList("Todos", "Acao", "Aventura", "Drama", "Ficcao", "Comedia")
-    }
+    //Lista com as categorias dos filmes
+    val categoriesList: List<String> = listOf("Todos", "Acao", "Aventura", "Drama", "Ficcao", "Comedia")
 
-    override fun getItem(position: Int): Fragment {
-        return when (position) {
-            0 -> FragmentOne(categoriesList[position])
-            1 -> FragmentOne(categoriesList[position])
-            2 -> FragmentOne(categoriesList[position])
-            3 -> FragmentOne(categoriesList[position])
-            4 -> FragmentOne(categoriesList[position])
-            else -> FragmentOne(categoriesList[position])
-        }
-    }
-
-    override fun getCount(): Int {
+    override fun getItemCount(): Int {
         return categoriesList.size
     }
 
-    override fun getPageTitle(position: Int): CharSequence? {
-        return categoriesList[position]
+    override fun createFragment(position: Int): Fragment {
+        return FragmentOne(categoriesList[position])
     }
 }

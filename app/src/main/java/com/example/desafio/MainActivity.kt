@@ -2,6 +2,7 @@ package com.example.desafio
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import com.example.desafio.adapter.MyPageAdapter
 import com.example.desafio.fragment.FragmentFavorite
 import com.example.desafio.fragment.FragmentHome
@@ -34,13 +35,13 @@ class MainActivity : AppCompatActivity() {
                 R.id.icon_favorite -> {
                     //Seleciona o Fragment para substituir
                     val fragmentFavorite = FragmentFavorite()
-                    changeFragmentFavorite(fragmentFavorite)
+                    changeFragmentHome(fragmentFavorite)
                     true
                 }
                 R.id.icon_search -> {
                     //Seleciona o Fragment para substituir
                     val fraSearch = FragmentSearch()
-                    changeFragmentSearch(fraSearch)
+                    changeFragmentHome(fraSearch)
                     true
                 }
                 else -> false
@@ -48,25 +49,12 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun changeFragmentHome(fragmentHome: FragmentHome) {
+    fun changeFragmentHome(fragment: Fragment) {
         val transaction = manager.beginTransaction()
-        transaction.replace(R.id.frame_main, fragmentHome)
+        transaction.replace(R.id.frame_main, fragment)
         //transaction.addToBackStack(null)
         transaction.commit()
     }
 
-    fun changeFragmentFavorite(fragmentFavorite: FragmentFavorite) {
-        val transaction = manager.beginTransaction()
-        transaction.replace(R.id.frame_main, fragmentFavorite)
-        //transaction.addToBackStack(null)
-        transaction.commit()
-    }
-
-    fun changeFragmentSearch(fraSearch: FragmentSearch) {
-        val transaction = manager.beginTransaction()
-        transaction.replace(R.id.frame_main, fraSearch)
-        //transaction.addToBackStack(null)
-        transaction.commit()
-    }
 
 }

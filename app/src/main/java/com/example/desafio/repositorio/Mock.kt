@@ -19,7 +19,7 @@ data class Filme(
 
 class Mock {
 
-    private val mListaFilme: List<Filme> = listOf(
+    fun getListaFilmes(): List<Filme> = listOf(
         Filme(
             (1), R.drawable.avatar,
             "9", "Avatar", "Aventura", "Estados Unidos",
@@ -89,23 +89,13 @@ class Mock {
         )
     )
 
-    fun getListaFilmes(): List<Filme> {
-
-        //Filtrando os filmes pela categoria
-        //val listaFiltrada = mListaFilme.filter { it.categoria=="Ficcao" }
-        //return listaFiltrada
-
-        return mListaFilme
-    }
-
     fun getListaFiltradaFilmes(categoria: String): List<Filme> {
 
         //Filtrando os filmes pela categoria
-        if (categoria == "Todos"||categoria =="") {
-            return mListaFilme
+        if (categoria == "Todos" || categoria == "") {
+            return getListaFilmes()
         } else {
-            val listaFiltrada = mListaFilme.filter { it.categoria == "${categoria}" }
-            return listaFiltrada
+            return getListaFilmes().filter { it.categoria == categoria }
         }
     }
 }

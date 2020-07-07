@@ -15,12 +15,12 @@ import com.example.desafio.repositorio.Filme
 import com.example.desafio.repositorio.Mock
 import kotlinx.android.synthetic.main.fragment_one.*
 
-class FragmentOne(categoria:String) : Fragment() {
-
-    //Recupera da classe Mock uma lista com filmes
-    val listaComFilmes = Mock().getListaFiltradaFilmes(categoria)
-
+class FragmentOne(private val categoria:String) : Fragment() {
+    
     override fun onActivityCreated(savedInstanceState: Bundle?) {
+        //Recupera da classe Mock uma lista com filmes
+        val listaComFilmes = Mock().getListaFiltradaFilmes(categoria)
+
         listaFilmesRecycler.adapter = FilmeAdapter(listaComFilmes,this::abreSegundaTela)
         listaFilmesRecycler.layoutManager = LinearLayoutManager(context)
         listaFilmesRecycler.setHasFixedSize(true)
