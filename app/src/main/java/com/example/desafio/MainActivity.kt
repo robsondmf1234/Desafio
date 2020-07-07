@@ -1,46 +1,46 @@
 package com.example.desafio
 
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
 import com.example.desafio.adapter.MyPageAdapter
 import com.example.desafio.fragment.FragmentFavorite
-import com.example.desafio.fragment.FragmentOne
+import com.example.desafio.fragment.FragmentHome
+import com.example.desafio.fragment.FragmentSearch
 import kotlinx.android.synthetic.main.activity_main.*
 
+
 class MainActivity : AppCompatActivity() {
+    val manager = supportFragmentManager
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
         supportActionBar?.hide()
 
-        val fragmentAdapter = MyPageAdapter(supportFragmentManager)
-        viewPager.adapter = fragmentAdapter
-        tabLayout.setupWithViewPager(viewPager)
+        //Chama o fragment home por padrão
+        val fragmentHome = FragmentHome("Todos")
+        changeFragmentHome(fragmentHome)
 
         //Capturando clique no BottomNavigation
         bottomNavigation.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.icon_home -> {
-                    val fragmentAdapter = MyPageAdapter(supportFragmentManager)
-                    buttomClicado("Botao Home clicado!", fragmentAdapter)
-
+                    val fragmentHome = FragmentHome("Todos")
+                    changeFragmentHome(fragmentHome)
                     true
                 }
                 R.id.icon_favorite -> {
-                    val FragmentFavorite = MyPageAdapter(supportFragmentManager)
-                    buttomClicado("Botao Favorite clicado!!", FragmentFavorite)
-
+                    //Seleciona o Fragment para substituir
+                    val fragmentFavorite = FragmentFavorite()
+                    changeFragmentFavorite(fragmentFavorite)
                     true
                 }
                 R.id.icon_search -> {
-                    val fragmentAdapter = MyPageAdapter(supportFragmentManager)
-                    buttomClicado("Botao Search clicado!", fragmentAdapter)
-
+                    //Seleciona o Fragment para substituir
+                    val fraSearch = FragmentSearch()
+                    changeFragmentSearch(fraSearch)
                     true
                 }
                 else -> false
@@ -48,12 +48,25 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun buttomClicado(mensagem: String, fragment: MyPageAdapter) {
-
-        Toast.makeText(this, "${mensagem}", Toast.LENGTH_SHORT).show()
-
-        viewPager.adapter = fragment
-        tabLayout.setupWithViewPager(viewPager)
-
+    fun changeFragmentHome(fragmentHome: FragmentHome) {
+        val transaction = manager.beginTransaction()
+        transaction.replace(R.id.frame_main, fragmentHome)
+        //transaction.addToBackStack(null)
+        transaction.commit()
     }
+
+    fun changeFragmentFavorite(fragmentFavorite: FragmentFavorite) {
+        val transaction = manager.beginTransaction()
+        transaction.replace(R.id.frame_main, fragmentFavorite)
+        //transaction.addToBackStack(null)
+        transaction.commit()
+    }
+
+    fun changeFragmentSearch(fraSearch: FragmentSearch) {
+        val transaction = manager.beginTransaction()
+        transaction.replace(R.id.frame_main, fraSearch)
+        //transaction.addToBackStack(null)
+        transaction.commit()
+    }
+
 }

@@ -20,10 +20,6 @@ class FragmentOne(categoria:String) : Fragment() {
     //Recupera da classe Mock uma lista com filmes
     val listaComFilmes = Mock().getListaFiltradaFilmes(categoria)
 
-    // Retornando todos filmes
-    //val listaComFilmes = Mock().getListaFilmes()
-
-
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         listaFilmesRecycler.adapter = FilmeAdapter(listaComFilmes,this::abreSegundaTela)
         listaFilmesRecycler.layoutManager = LinearLayoutManager(context)
@@ -37,7 +33,11 @@ class FragmentOne(categoria:String) : Fragment() {
     }
 
     private fun abreSegundaTela(filme: Filme){
-        Toast.makeText(context, "Filme Cliclado...", Toast.LENGTH_SHORT).show()
+        val vaiPraProximaTela = Intent(context, TelaSecundaria::class.java)
+        vaiPraProximaTela.putExtra("filme",filme)
+        startActivity(vaiPraProximaTela)
+
+       // Toast.makeText(context, "Filme Cliclado...", Toast.LENGTH_SHORT).show()
     }
 
 }

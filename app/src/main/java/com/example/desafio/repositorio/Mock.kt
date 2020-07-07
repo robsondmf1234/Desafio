@@ -101,7 +101,7 @@ class Mock {
     fun getListaFiltradaFilmes(categoria: String): List<Filme> {
 
         //Filtrando os filmes pela categoria
-        if (categoria == "Todos") {
+        if (categoria == "Todos"||categoria =="") {
             return mListaFilme
         } else {
             val listaFiltrada = mListaFilme.filter { it.categoria == "${categoria}" }

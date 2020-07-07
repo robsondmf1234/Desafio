@@ -1,4 +1,4 @@
 <resources>
     <string name="app_name">Desafio</string>
-    <string name="hello_blank_fragment">Fragment Favorite</string>
+    <string name="hello_blank_fragment">Fragment Search</string>
 </resources>

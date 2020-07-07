@@ -24,11 +24,6 @@ class MyPageAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
             else -> FragmentOne(categoriesList[position])
         }
     }
-/*
-    fun getFragmentFavorite(): Fragment {
-
-        return FragmentFavorite()
-    }*/
 
     override fun getCount(): Int {
         return categoriesList.size
