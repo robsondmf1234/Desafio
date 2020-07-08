@@ -13,7 +13,7 @@ class TelaSecundaria : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tela_secundaria)
 
-       // image_capa_secundaria.requestFocus()
+        // image_capa_secundaria.requestFocus()
 
         if (supportActionBar != null) {
             supportActionBar!!.hide()
@@ -34,32 +34,12 @@ class TelaSecundaria : AppCompatActivity() {
         image_capa_filme.setImageResource(filme.imagemCapa)
         image_capa_secundaria.setImageResource(filme.imagemCapa)
 
-        recyclerView_tela_secundaria.adapter =
-            FilmeAdapter2(listaComFilmes)
-        recyclerView_tela_secundaria.layoutManager = LinearLayoutManager(this)
-        recyclerView_tela_secundaria.setHasFixedSize(true)
-
+        setupMainRecyclerView(listaComFilmes)
     }
 
-/*    private fun gerarFilmes(size: Int): List<FilmeItem> {
-
-        val list = ArrayList<FilmeItem>()
-
-        for (i in 1 until size) {
-            val idAvatar = R.drawable.avatar
-
-            val item = FilmeItem((i),
-                idAvatar,
-                "8.5", "Avatar",
-                "Aventura", "Estados Unidos",//"118 min",
-                "No exuberante " +
-                        "mundo alienígena de Pandora vivem os Na'vi, seres que parecem ser" +
-                        " primitivos, mas são altamente evoluídos. Como o ambiente do planeta" +
-                        " é tóxico, foram criados os avatares, corpos biológicos controlados pela" +
-                        " mente humana que se movimentam livremente em Pandora. Jake Sully, um ex-fuzileiro"
-            )
-            list += item
-        }
-        return list
-    }*/
+    private fun setupMainRecyclerView(listaComFilmes: List<Filme>) {
+        recyclerView_tela_secundaria.adapter = FilmeAdapter2(listaComFilmes)
+        recyclerView_tela_secundaria.layoutManager = LinearLayoutManager(this)
+        recyclerView_tela_secundaria.setHasFixedSize(true)
+    }
 }

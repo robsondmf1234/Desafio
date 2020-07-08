@@ -15,16 +15,12 @@ import com.example.desafio.repositorio.Filme
 import com.example.desafio.repositorio.Mock
 import kotlinx.android.synthetic.main.fragment_one.*
 
-class FragmentOne(val categoria:String) : Fragment() {
-
-    //Recupera da classe Mock uma lista com filmes
-    val listaComFilmes = Mock().getListaFiltradaFilmes(categoria)
-
-    // Retornando todos filmes
-    //val listaComFilmes = Mock().getListaFilmes()
-
-
+class FragmentOne(private val categoria:String) : Fragment() {
+    
     override fun onActivityCreated(savedInstanceState: Bundle?) {
+        //Recupera da classe Mock uma lista com filmes
+        val listaComFilmes = Mock().getListaFiltradaFilmes(categoria)
+
         listaFilmesRecycler.adapter = FilmeAdapter(listaComFilmes,this::abreSegundaTela)
         listaFilmesRecycler.layoutManager = LinearLayoutManager(context)
         listaFilmesRecycler.setHasFixedSize(true)
@@ -37,7 +33,11 @@ class FragmentOne(val categoria:String) : Fragment() {
     }
 
     private fun abreSegundaTela(filme: Filme){
-        Toast.makeText(context, "Filme Cliclado", Toast.LENGTH_SHORT).show()
+        val vaiPraProximaTela = Intent(context, TelaSecundaria::class.java)
+        vaiPraProximaTela.putExtra("filme",filme)
+        startActivity(vaiPraProximaTela)
+
+       // Toast.makeText(context, "Filme Cliclado...", Toast.LENGTH_SHORT).show()
     }
 
 }

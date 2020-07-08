@@ -1,37 +1,60 @@
 package com.example.desafio
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import com.example.desafio.adapter.MyPageAdapter
-import com.example.desafio.repositorio.Filme
-import com.example.desafio.repositorio.Mock
+import com.example.desafio.fragment.FragmentFavorite
+import com.example.desafio.fragment.FragmentHome
+import com.example.desafio.fragment.FragmentSearch
 import kotlinx.android.synthetic.main.activity_main.*
 
+
 class MainActivity : AppCompatActivity() {
+    val manager = supportFragmentManager
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        /*    if (supportActionBar != null) {
-                supportActionBar!!.hide()
+        supportActionBar?.hide()
+
+        //Chama o fragment home por padrão
+        val fragmentHome = FragmentHome("Todos")
+        changeFragmentHome(fragmentHome)
+
+        //Capturando clique no BottomNavigation
+        bottomNavigation.setOnNavigationItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.icon_home -> {
+                    val fragmentHome = FragmentHome("Todos")
+                    changeFragmentHome(fragmentHome)
+                    true
+                }
+                R.id.icon_favorite -> {
+                    //Seleciona o Fragment para substituir
+                    val fragmentFavorite = FragmentFavorite()
+                    changeFragmentHome(fragmentFavorite)
+                    true
+                }
+                R.id.icon_search -> {
+                    //Seleciona o Fragment para substituir
+                    val fraSearch = FragmentSearch()
+                    changeFragmentHome(fraSearch)
+                    true
+                }
+                else -> false
             }
-        */
+        }
+    }
 
-        //Recupera da classe Mock uma lista com filmes
-        val listaComFilmes = Mock().getListaFilmes()
-
-        val fragmentAdapter = MyPageAdapter(supportFragmentManager)
-        viewPager.adapter = fragmentAdapter
-        tabLayout.setupWithViewPager(viewPager)
+    fun changeFragmentHome(fragment: Fragment) {
+        val transaction = manager.beginTransaction()
+        transaction.replace(R.id.frame_main, fragment)
+        //transaction.addToBackStack(null)
+        transaction.commit()
     }
 
 
-    private fun abreSegundaTela(filme: Filme) {
-        val vaiPraProximaTela = Intent(this, TelaSecundaria::class.java)
-        vaiPraProximaTela.putExtra("filme", filme)
-        startActivity(vaiPraProximaTela)
-
-    }
 }
