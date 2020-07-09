@@ -1,6 +1,7 @@
 package com.example.desafio.adapter
 
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,7 +13,7 @@ import com.example.desafio.repositorio.Filme
 import kotlinx.android.synthetic.main.list_item.view.*
 
 
-class FilmeAdapter2(val listaFilmes: List<Filme>)
+class FilmeAdapter2(val listaFilmes: List<Filme>,val context: Context)
     : RecyclerView.Adapter<FilmeAdapter2.FilmeViewHolder>() {
 
 

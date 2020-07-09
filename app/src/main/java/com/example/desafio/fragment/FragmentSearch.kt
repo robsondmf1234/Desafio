@@ -6,7 +6,7 @@ import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.desafio.R
-import com.example.desafio.adapter.FilmeAdapter3
+import com.example.desafio.adapter.FilmeAdapter2
 import com.example.desafio.repositorio.Filme
 import com.example.desafio.repositorio.Mock
 import kotlinx.android.synthetic.main.fragment_search.*
@@ -24,7 +24,7 @@ class FragmentSearch : Fragment() {
 
         displayList.addAll(arrayList)
 
-        val myAdapter = FilmeAdapter3(displayList,context!!)
+        val myAdapter = FilmeAdapter2(displayList,context!!)
 
         recycler_fragment_search.layoutManager = LinearLayoutManager(context)
         recycler_fragment_search.adapter = myAdapter

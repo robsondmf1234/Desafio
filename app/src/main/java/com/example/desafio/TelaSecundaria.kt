@@ -38,7 +38,7 @@ class TelaSecundaria : AppCompatActivity() {
     }
 
     private fun setupMainRecyclerView(listaComFilmes: List<Filme>) {
-        recyclerView_tela_secundaria.adapter = FilmeAdapter2(listaComFilmes)
+        recyclerView_tela_secundaria.adapter = FilmeAdapter2(listaComFilmes,this)
         recyclerView_tela_secundaria.layoutManager = LinearLayoutManager(this)
         recyclerView_tela_secundaria.setHasFixedSize(true)
     }
