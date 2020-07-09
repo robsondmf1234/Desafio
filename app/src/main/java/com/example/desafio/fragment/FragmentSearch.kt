@@ -1,11 +1,13 @@
 package com.example.desafio.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.*
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.desafio.R
+import com.example.desafio.TelaSecundaria
 import com.example.desafio.adapter.FilmeAdapter2
 import com.example.desafio.repositorio.Filme
 import com.example.desafio.repositorio.Mock
@@ -24,7 +26,7 @@ class FragmentSearch : Fragment() {
 
         displayList.addAll(arrayList)
 
-        val myAdapter = FilmeAdapter2(displayList,context!!)
+        val myAdapter = FilmeAdapter2(displayList,context!!,this::abreSegundaTela)
 
         recycler_fragment_search.layoutManager = LinearLayoutManager(context)
         recycler_fragment_search.adapter = myAdapter
@@ -82,6 +84,12 @@ class FragmentSearch : Fragment() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return super.onOptionsItemSelected(item)
     }
+    //Método para passado no parametro para capturar clique no itemview dentro do recyclerview
+    private fun abreSegundaTela(filme: Filme){
+        val vaiPraProximaTela = Intent(context, TelaSecundaria::class.java)
+        vaiPraProximaTela.putExtra("filme",filme)
+        startActivity(vaiPraProximaTela)
 
+    }
 
 }

@@ -1,6 +1,8 @@
 package com.example.desafio
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.desafio.adapter.FilmeAdapter2
@@ -38,8 +40,16 @@ class TelaSecundaria : AppCompatActivity() {
     }
 
     private fun setupMainRecyclerView(listaComFilmes: List<Filme>) {
-        recyclerView_tela_secundaria.adapter = FilmeAdapter2(listaComFilmes,this)
+        recyclerView_tela_secundaria.adapter = FilmeAdapter2(listaComFilmes,this,this::abreSegundaTela)
         recyclerView_tela_secundaria.layoutManager = LinearLayoutManager(this)
         recyclerView_tela_secundaria.setHasFixedSize(true)
+    }
+
+    //Método para passado no parametro para capturar clique no itemview dentro do recyclerview
+    private fun abreSegundaTela(filme: Filme){
+     //   val vaiPraProximaTela = Intent(this, TelaSecundaria::class.java)
+     //   vaiPraProximaTela.putExtra("filme",filme)
+     //   startActivity(vaiPraProximaTela)
+      //  Toast.makeText(this,"O filme ${filme.titulo} foi clicado",Toast.LENGTH_SHORT).show()
     }
 }

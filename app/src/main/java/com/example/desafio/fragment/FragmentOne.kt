@@ -32,12 +32,11 @@ class FragmentOne(private val categoria:String) : Fragment() {
         return inflater.inflate(R.layout.fragment_one, container, false)
     }
 
+    //Método para passado no parametro para capturar clique no itemview dentro do recyclerview
     private fun abreSegundaTela(filme: Filme){
         val vaiPraProximaTela = Intent(context, TelaSecundaria::class.java)
         vaiPraProximaTela.putExtra("filme",filme)
         startActivity(vaiPraProximaTela)
-
-       // Toast.makeText(context, "Filme Cliclado...", Toast.LENGTH_SHORT).show()
     }
 
 }

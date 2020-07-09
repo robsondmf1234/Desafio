@@ -13,7 +13,7 @@ import com.example.desafio.repositorio.Filme
 import kotlinx.android.synthetic.main.list_item.view.*
 
 
-class FilmeAdapter2(val listaFilmes: List<Filme>,val context: Context)
+class FilmeAdapter2(val listaFilmes: List<Filme>,val context: Context,private val clique: (selectedItem: Filme) -> Unit)
     : RecyclerView.Adapter<FilmeAdapter2.FilmeViewHolder>() {
 
 
@@ -37,6 +37,11 @@ class FilmeAdapter2(val listaFilmes: List<Filme>,val context: Context)
         //holder.textViewDuracao.text = filmeAtual.duracao
 
         holder.textViewDescricao.text = filmeAtual.descricao
+
+        holder.itemView.setOnClickListener({
+            //pegando o objeto do filmes atual
+           clique(filmeAtual)
+        })
     }
 
     override fun getItemCount(): Int {
