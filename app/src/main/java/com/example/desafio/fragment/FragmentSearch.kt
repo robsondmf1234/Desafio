@@ -31,7 +31,7 @@ class FragmentSearch : Fragment() {
 
         recycler_fragment_search.layoutManager = LinearLayoutManager(context)
         recycler_fragment_search.adapter = myAdapter
-
+        
         buscaSearchView(search_title)
     }
 
@@ -49,7 +49,6 @@ class FragmentSearch : Fragment() {
           val vaiPraProximaTela = Intent(context, TelaSecundaria::class.java)
            vaiPraProximaTela.putExtra("filme",filme)
            startActivity(vaiPraProximaTela)
-
     }
 
     //Método para buscar os filmes pelo SearchView
